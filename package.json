@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Paperclip setup plugin for guided installation and apply flows.",
+  "description": "Guided setup and apply plugin for UOS environments built on @uos/core.",
   "scripts": {
     "test": "node --test tests/smoke.test.mjs",
     "plugin:build": "node ./esbuild.config.mjs",

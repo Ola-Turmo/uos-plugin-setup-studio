@@ -1,35 +1,35 @@
 # @uos/plugin-setup-studio
 
-@uos/plugin-setup-studio owns the guided installation and apply experience. Its job is to make UOS set up understandable, reversible, and fast-to-value while translating platform complexity into safe, opinionated workflows.
+@uos/plugin-setup-studio is the guided setup and apply surface for UOS. It owns onboarding, configuration capture, preflight checks, plan preview, and human-readable apply flows on top of `@uos/core`. It does not own the canonical apply engine, ongoing health dashboards, or provider connector lifecycle.
 
 Built as part of the UOS split workspace on top of [Paperclip](https://github.com/paperclipai/paperclip), which remains the upstream control-plane substrate.
 
 ## What This Repo Owns
 
-- Guided setup, configuration capture, and apply flows.
-- Plan previews, dependency checks, validation, and environment diagnostics.
-- Rollback, undo, and recovery UX for failed or partial setup.
-- Progress reporting and explanation of side effects.
+- Guided setup, scoping, configuration capture, and apply confirmation UX.
+- Preflight checks, dependency validation, and environment diagnostics before apply.
+- Plan previews, side-effect explanations, and operator-facing evidence before changes land.
+- Failure recovery, undo guidance, and retry flows around `@uos/core` transactions.
 - Instrumentation of onboarding friction and success paths.
 
 ## Runtime Form
 
-- Split repo with package code as the source of truth and a Paperclip plugin scaffold available for worker, manifest, UI, and validation surfaces when the repo needs runtime or operator-facing behavior.
+- Plugin-first operator surface that translates core plans into a guided installation and configuration experience.
 
 ## Highest-Value Workflows
 
 - New install with progressive disclosure and environment checks.
-- Configuration changes with diff preview and safe apply.
-- Failure recovery with targeted remediation guidance.
-- Rollback or revert after partial application.
-- Telemetry-informed UX iteration based on real friction data.
+- Configuration changes with diff preview and safe apply confirmation.
+- Failure recovery with targeted remediation guidance and clear next steps.
+- Re-running setup safely after partial application or environment drift is detected elsewhere.
+- Telemetry-informed UX iteration based on real setup friction data.
 
 ## Key Connections and Operating Surfaces
 
-- GitHub, Google Workspace, DNS/domain providers, email systems, secret managers, package registries, and cloud/deployment platforms such as Cloudflare, Vercel, Render, Docker hosts, or VPS targets required to get a real workspace from zero to ready state.
+- GitHub, Google Workspace, DNS/domain providers, email systems, secret managers, package registries, and cloud/deployment platforms needed to get a real workspace from zero to ready state.
 - Postgres/SQLite databases, object storage, auth providers, environment-variable stores, and admin consoles when setup requires validating or creating real backing services.
-- Docs, forms, spreadsheets, ticketing, onboarding checklists, and browser-admin flows when user input, environment inspection, or manual checkpoints are part of safe setup.
-- Local CLIs, package managers, template generators, migration/import tools, and recovery scripts whenever they materially shorten time-to-value without making the setup path opaque.
+- Docs, forms, spreadsheets, ticketing, onboarding checklists, and browser-admin flows when user input or manual checkpoints are part of safe setup.
+- Local CLIs, package managers, template generators, migration/import tools, and recovery scripts whenever they materially shorten time-to-value without turning this repo into the core engine.
 
 ## KPI Targets
 
@@ -41,14 +41,14 @@ Built as part of the UOS split workspace on top of [Paperclip](https://github.co
 ## Implementation Backlog
 
 ### Now
-- Map the canonical setup paths and turn each into a reproducible, evidence-producing guided flow.
+- Map the canonical setup paths and turn each into reproducible, evidence-producing guided flows.
 - Add stronger preflight checks for domains, secrets, databases, and provider prerequisites.
-- Make failure recovery and revert steps first-class outputs instead of buried implementation details.
+- Make recovery and revert guidance first-class outputs instead of buried implementation details.
 
 ### Next
 - Reduce setup friction by collapsing repeated prompts and auto-filling safely discoverable context.
-- Instrument setup abandonment and friction analytics so the flow can be prioritized with real evidence.
-- Improve handoff from setup to core provisioning and cockpit visibility.
+- Instrument setup abandonment and friction analytics so prioritization follows evidence.
+- Improve handoff from setup into core transactions and cockpit visibility.
 
 ### Later
 - Support reusable setup blueprints for different company profiles and target environments.

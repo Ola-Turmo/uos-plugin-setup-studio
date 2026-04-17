@@ -4,6 +4,13 @@
 
 Built as part of the UOS split workspace on top of [Paperclip](https://github.com/paperclipai/paperclip), which remains the upstream control-plane substrate.
 
+## Boundary Summary
+
+- Owns onboarding, preflight, scoping, confirmation, and recovery UX around `@uos/core`.
+- Depends on [uos-core](https://github.com/Ola-Turmo/uos-core) for canonical plans, transactions, and compatibility rules.
+- Hands off ongoing evidence, health, and review workflows to [uos-plugin-operations-cockpit](https://github.com/Ola-Turmo/uos-plugin-operations-cockpit).
+- Relies on [uos-plugin-connectors](https://github.com/Ola-Turmo/uos-plugin-connectors) when setup needs provider auth, callback, or webhook state.
+
 ## What This Repo Owns
 
 - Guided setup, scoping, configuration capture, and apply confirmation UX.

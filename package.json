@@ -4,6 +4,13 @@
   "private": true,
   "type": "module",
   "description": "Guided setup and apply plugin for UOS environments built on @uos/core.",
+  "keywords": [
+    "uos",
+    "paperclip-plugin",
+    "guided-setup",
+    "onboarding",
+    "apply-ux"
+  ],
   "scripts": {
     "test": "node --test tests/smoke.test.mjs",
     "plugin:build": "node ./esbuild.config.mjs",
